@@ -1,4 +1,4 @@
-# Tugas Pemrograman Web — Kalkulator Sederhana
+# Tugas 4 : Pemrograman Web — Kalkulator Sederhana
 
 **Nama:** Mohammad Jadid
 **NIM:** 20240801304
@@ -12,9 +12,3 @@
 ## Deskripsi
 
 Website kalkulator sederhana yang dibuat menggunakan HTML, CSS, dan JavaScript. Website ini memiliki desain minimalis dan digunakan untuk melakukan perhitungan aritmatika.
-
-## Teknologi
-
-* HTML
-* CSS
-* JavaScript
