@@ -1,0 +1,188 @@
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --navy: #102b4c;
+  --blue: #1768b5;
+  --pale: #eaf5ff;
+  --line: #dbe7f2;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--navy);
+}
+
+.app-shell {
+  width: 100%;
+  min-height: calc(100 * min(var(--vh, 1vh), 1vh));
+}
+
+.site-header {
+  border-bottom: 1px solid #e2ebf3;
+}
+
+.inner {
+  width: min(100% - 40px, 1120px);
+  margin-inline: auto;
+}
+
+.hero {
+  padding: clamp(48px, 8vw, 100px) 0 48px;
+}
+
+.hero-title {
+  max-width: 740px;
+  line-height: 1.07;
+  letter-spacing: -.055em;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.hero-title span {
+  display: block;
+}
+
+.hero-description {
+  max-width: 500px;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 1fr);
+  gap: 20px;
+  padding-bottom: 70px;
+}
+
+.surface {
+  border: 1px solid var(--line);
+  box-shadow: 0 16px 45px rgba(17, 50, 85, .055);
+}
+
+.field {
+  width: 100%;
+  outline: none;
+  border: 1px solid #d7e4ef;
+  background: #fff;
+  color: var(--navy);
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.field:focus {
+  border-color: #398cd2;
+  box-shadow: 0 0 0 3px #ddecfa;
+}
+
+.operator {
+  min-height: 46px;
+  border: 1px solid #dce9f5;
+  background: #f8fbff;
+  color: #173d67;
+  cursor: pointer;
+  transition: background .18s, transform .18s, border-color .18s;
+}
+
+.operator:hover {
+  background: #eaf5ff;
+  transform: translateY(-1px);
+}
+
+.operator.is-active {
+  background: #1768b5;
+  color: white;
+  border-color: #1768b5;
+  box-shadow: 0 5px 12px rgba(23, 104, 181, .18);
+}
+
+.calculate-button {
+  background: var(--blue);
+  color: #fff;
+  cursor: pointer;
+  transition: transform .18s, filter .18s;
+}
+
+.calculate-button:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+#clear-history {
+  background: transparent;
+  color: var(--blue);
+  cursor: pointer;
+}
+
+#clear-history:hover {
+  background: var(--pale);
+}
+
+button:focus-visible {
+  outline: 3px solid #65b4ed;
+  outline-offset: 3px;
+}
+
+.history-row {
+  border: 1px solid #e4edf5;
+}
+
+.history-row + .history-row {
+  margin-top: 9px;
+}
+
+.reveal {
+  animation: rise .5s both;
+}
+
+.workspace {
+  animation-delay: .12s;
+}
+
+#form-error {
+  color: #dc2626;
+  font-size: .875rem;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 750px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 55px 0 34px;
+  }
+}
+
+@media (max-width: 400px) {
+  .inner {
+    width: min(100% - 28px, 1120px);
+  }
+
+  .panel-padding {
+    padding: 20px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
+
+  .operator,
+  .calculate-button {
+    transition: none;
+  }
+}

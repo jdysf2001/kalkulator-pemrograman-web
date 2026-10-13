@@ -1,0 +1,133 @@
+
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Ku</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.tailwindcss.com/3.4.17" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body class="w-full">
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="inner flex min-h-[72px] items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <span aria-hidden="true" class="grid h-9 w-9 place-items-center rounded-xl bg-[#1768b5] text-white font-bold">=</span>
+          <span class="font-bold">Kalkulator Ku</span>
+        </div>
+        <span class="rounded-full bg-[#eaf5ff] px-3 py-1.5 font-bold uppercase tracking-[.12em]">Simple Calculator</span>
+      </div>
+    </header>
+
+    <main class="inner">
+      <section class="hero reveal" aria-labelledby="hero-title">
+        <p class="mb-5 font-bold uppercase tracking-[.2em]">KALKULATOR DIGITAL</p>
+        <h1 id="hero-title" class="hero-title font-extrabold">
+          <span>Hitung dengan</span>
+          <span>lebih sederhana.</span>
+        </h1>
+        <p class="hero-description mt-5 leading-relaxed">
+          Kalkulator sederhana untuk membantu perhitungan harian Anda
+          dengan cepat, praktis, dan akurat.
+          <br>
+          <br>  
+          Mohammad Jadid - 20240801304 
+        </p>
+      </section>
+
+      <div class="workspace reveal">
+        <section class="surface panel-padding rounded-2xl p-7" aria-labelledby="calculator-heading">
+          <div class="mb-6 flex items-start justify-between gap-4">
+            <div>
+              <p class="mb-1 font-bold uppercase tracking-[.16em]">KALKULATOR</p>
+              <h2 id="calculator-heading" class="font-bold">Mulai perhitungan</h2>
+            </div>
+            <span class="rounded-md bg-[#edf5fc] px-2 py-1 font-semibold">V 1.0</span>
+          </div>
+
+          <form id="calculator-form" novalidate>
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div>
+                <label for="first-number" class="mb-2 block font-semibold">Angka pertama</label>
+                <input id="first-number" class="field rounded-lg px-4 py-3"
+                  type="number" step="any" inputmode="decimal"
+                  placeholder="Contoh: 25" required>
+              </div>
+
+              <div>
+                <label for="second-number" class="mb-2 block font-semibold">Angka kedua</label>
+                <input id="second-number" class="field rounded-lg px-4 py-3"
+                  type="number" step="any" inputmode="decimal"
+                  placeholder="Contoh: 5" required>
+              </div>
+            </div>
+
+            <fieldset class="mt-5">
+              <legend class="mb-2 font-semibold">Pilih operator</legend>
+              <div class="grid grid-cols-4 gap-2" aria-label="Pilihan operator">
+                <button type="button" data-operator="+"
+                  class="operator is-active rounded-lg font-bold" aria-pressed="true">+</button>
+                <button type="button" data-operator="−"
+                  class="operator rounded-lg font-bold" aria-pressed="false">−</button>
+                <button type="button" data-operator="×"
+                  class="operator rounded-lg font-bold" aria-pressed="false">×</button>
+                <button type="button" data-operator="÷"
+                  class="operator rounded-lg font-bold" aria-pressed="false">÷</button>
+              </div>
+            </fieldset>
+
+            <button type="submit"
+              class="calculate-button mt-5 w-full rounded-lg px-5 py-3.5 font-bold shadow-sm">
+              Hitung Sekarang
+            </button>
+
+            <p id="form-error" class="mt-3 hidden" role="alert"></p>
+          </form>
+
+          <div class="mt-6 min-h-[100px] rounded-xl border border-[#dce9f5] p-5"
+            aria-live="polite">
+            <p class="mb-2 font-semibold">Hasil perhitungan</p>
+            <p id="result-value" class="break-words font-bold">—</p>
+          </div>
+        </section>
+
+        <aside class="surface panel-padding rounded-2xl p-7"
+          aria-labelledby="history-heading">
+          <div class="mb-6 flex items-start justify-between gap-4">
+            <div>
+              <p class="mb-1 font-bold uppercase tracking-[.16em]">RIWAYAT</p>
+              <h2 id="history-heading" class="font-bold">Perhitungan terakhir</h2>
+            </div>
+            <button type="button" id="clear-history"
+              class="rounded-md px-2 py-1 font-semibold">Hapus</button>
+          </div>
+
+          <p id="history-empty"
+            class="rounded-xl border border-dashed border-[#d9e7f2] px-5 py-10 text-center leading-relaxed">
+            Belum ada riwayat perhitungan. Hasil perhitungan Anda akan muncul di sini.
+          </p>
+
+          <ol id="history-list" class="list-none p-0"
+            aria-label="Daftar perhitungan"></ol>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <template id="history-template">
+    <li class="history-row flex items-center gap-3 rounded-xl p-4">
+      <span aria-hidden="true"
+        class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#eaf5ff] font-bold text-[#1768b5]">=</span>
+      <div class="min-w-0">
+        <p class="history-expression break-words font-semibold"></p>
+        <p class="history-answer break-words"></p>
+      </div>
+    </li>
+  </template>
+</body>
+</html>
